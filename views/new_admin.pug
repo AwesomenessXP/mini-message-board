@@ -1,0 +1,10 @@
+extends layout 
+
+block content
+  <form method="POST" action="/admins/login"> <!--"action" should be the full address starting at the root-->
+    <label for="user"> User: </label>
+    <input type="text" name="user">
+    <label for="password"> Password: </label>
+    <input type="text" name="password">
+    <button id="Submit">Submit</button>
+  </form>

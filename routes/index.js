@@ -19,11 +19,24 @@ const messages = [
   }
 ];
 
-/* GET home page. */
+// ---------------------------------------- GET REQUESTS ------------------------------------
+
 router.get('/', function(req, res, next) {
-  res.render('index', {
+  res.render('index', { // render the view, add the data to be rendered
     title: 'Mini Messageboard',
     messages: messages,
+  });
+});
+
+router.get('/secret', (req, res, next) => {
+  const greetings = [ // this object has to be const!
+    "Ahoy!",
+    "Howdy!",
+    "Yooooo"
+  ];
+
+  res.render('secret', {
+    greetings: greetings,
   });
 });
 
@@ -32,9 +45,11 @@ router.get('/new', (req, res, next) => {
   res.render('form')
 });
 
-// POST request from index
+//---------------------------------------- POST requests-----------------------------
+
 // this is where form data is submitted:
 router.post('/new', (req, res, next) => {
+  // add a new message to the object
   messages.push({
     text: req.body.messageText,
     user: req.body.username,

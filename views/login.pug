@@ -1,0 +1,10 @@
+extends layout 
+
+block content 
+  h1 Admins 
+  - for (let i = 0; i < content.length; i++) 
+    p User: #{content[i].user}
+    p Password: #{content[i].password}
+    hr
+
+  <a href="/admins/login"><button id="add-admin">Add admin</button></a>
