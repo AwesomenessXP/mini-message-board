@@ -3,3 +3,11 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  hr
+  - for (let i = 0; i < messages.length; i++) 
+      p User: #{messages[i].user}
+      p #{messages[i].text}
+      p Added: #{messages[i].added}
+      hr
+
+  <a href="/new"><button>Add new message</button></a>
